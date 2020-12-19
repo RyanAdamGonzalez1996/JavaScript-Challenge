@@ -16,11 +16,9 @@ function createTable(filteredData){
     
     // Select the table element by id
     var table = d3.select("#ufo-table");
-    var header = d3.selectAll(".table-head");
 
     // Select the tbody element by id 
     var tbody = table.select("tbody");
-    var thead = table.select("thead");
     var trow;
 
     // Sets the table to it's default blank setting for population
@@ -30,7 +28,14 @@ function createTable(filteredData){
     filteredData.forEach(function(dataObject){
         // Create new row for each object
         trow = tbody.append("tr");
-        trow.append("td").text("test");
+        trow.append("td").text(dataObject.datetime);
+        trow.append("td").text(dataObject.city);
+        trow.append("td").text(dataObject.state);
+        trow.append("td").text(dataObject.country);
+        trow.append("td").text(dataObject.shape);
+        trow.append("td").text(dataObject.durationMinutes);
+        trow.append("td").text(dataObject.comments);
+
     });
 
 };
