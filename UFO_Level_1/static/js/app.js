@@ -16,13 +16,22 @@ function createTable(filteredData){
     
     // Select the table element by id
     var table = d3.select("#ufo-table");
+    var header = d3.selectAll(".table-head");
 
     // Select the tbody element by id 
     var tbody = table.select("tbody");
+    var thead = table.select("thead");
     var trow;
     
     // Initialize the table element to be blank
-    //table.html("");
+    header.html("");
+    thead.html("");
+    tbody.html("");
+   
+    // Create the Header
+    trow = thead.append("tr");
+    trow.append("th").text("Date");
+    trow.append("th").text("City");
 
     // Loop through each object and append the data to the table
     filteredData.forEach(function(dataObject){
