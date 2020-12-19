@@ -12,13 +12,25 @@ button.on("click", runEvent);
 form.on("submit", runEvent);
 
 // Function to create and append data to the table
-function createTable(date, city, state, country, shape, duration, comments){
+function createTable(filteredData){
     
-    // Select the table element by class name
+    // Select the table element by id
+    var table = d3.select("#ufo-table");
 
+    // Select the tbody element by id 
+    var tbody = table.select("tbody");
+    var trow;
+    
     // Initialize the table element to be blank
+    //table.html("");
 
-    // Append the data to the table
+    // Loop through each object and append the data to the table
+    filteredData.forEach(function(dataObject){
+        // Create new row for each object
+        trow = tbody.append("tr");
+        trow.append("td").text("test");
+    });
+
 };
 
 // Event Handler Function
@@ -31,16 +43,20 @@ function runEvent(){
     var inputElement = d3.select("#datetime");
 
     // Get the input value (date) from the input element
-    var inputDate = inputElement.property("value");
+    var inputData = inputElement.property("value");
 
     // Test 
-    console.log(inputDate);
+    console.log(inputData);
     console.log(tableData);
-    // Filter the data.js by the input value
-    
-    // Set the information for the corresponding date into variables
 
-    // Call the createTable function with the corresponding 
-    // date with the parameters for each variable
+    // Filter the data.js by the input value
+    var filteredData = tableData.filter(sighting => sighting.datetime === inputData);
+    
+    // Test
+    console.log(filteredData);
+
+    // Call the createTable function with the 
+    // filteredData as the parameter
+    createTable(filteredData);
 };
 
