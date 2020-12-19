@@ -22,16 +22,9 @@ function createTable(filteredData){
     var tbody = table.select("tbody");
     var thead = table.select("thead");
     var trow;
-    
-    // Initialize the table element to be blank
-    header.html("");
-    thead.html("");
+
+    // Sets the table to it's default blank setting for population
     tbody.html("");
-   
-    // Create the Header
-    trow = thead.append("tr");
-    trow.append("th").text("Date");
-    trow.append("th").text("City");
 
     // Loop through each object and append the data to the table
     filteredData.forEach(function(dataObject){
