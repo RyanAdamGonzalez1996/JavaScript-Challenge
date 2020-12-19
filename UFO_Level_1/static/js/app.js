@@ -52,15 +52,8 @@ function runEvent(){
     // Get the input value (date) from the input element
     var inputData = inputElement.property("value");
 
-    // Test 
-    console.log(inputData);
-    console.log(tableData);
-
     // Filter the data.js by the input value
     var filteredData = tableData.filter(sighting => sighting.datetime === inputData);
-    
-    // Test
-    console.log(filteredData);
 
     // Call the createTable function with the 
     // filteredData as the parameter
